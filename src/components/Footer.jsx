@@ -1,8 +1,6 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import VisitorCounter from '@/components/VisitorCounter';
 
-const LOGO_URL = 'https://media.db.com/images/public/6a3e82989cca8745119fa420/91bcee984_IMG_7424-removebg-preview.png';
+const LOGO_URL = '/logo.png';
 
 export default function Footer() {
   return (
