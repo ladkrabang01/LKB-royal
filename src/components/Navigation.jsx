@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useState, useEffect } from 'react';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 
@@ -14,7 +12,7 @@ const NAV_ITEMS = [
 ];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
-const LOGO_URL = '/logo.jpg';
+const LOGO_URL = '/logo.png';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +47,6 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo/Title */}
           <button
             onClick={() => handleNavClick('hero')}
             className="flex items-center gap-2 min-h-[44px] text-left"
@@ -66,7 +63,6 @@ export default function Navigation() {
             </span>
           </button>
 
-          {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
@@ -92,7 +88,6 @@ export default function Navigation() {
             })}
           </ul>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 rounded focus:outline-none focus-visible:outline-dashed focus-visible:outline-[#C9A84C]"
@@ -105,7 +100,6 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile menu dropdown */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-400 ${
             menuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
