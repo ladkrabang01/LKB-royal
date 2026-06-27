@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useRef, useEffect } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -11,7 +9,7 @@ const virtueLines = [
   'ทรงเป็นศูนย์รวมแห่งความจงรักภักดีของพสกนิกรไทย',
 ];
 
-const IMAGE_URL = 'https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/a2fae1eda_IMG_7421.jpg';
+const IMAGE_URL = '/5.jpg';
 
 export default function VirtuesSection() {
   const sectionRef = useRef(null);
