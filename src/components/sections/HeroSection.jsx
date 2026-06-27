@@ -16,10 +16,7 @@ export default function HeroSection() {
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="บทนำเฉลิมพระเกียรติ"
     >
-      {/* Background: dark gradient only, no portrait as bg to avoid face obstruction */}
       <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #0a1828 0%, #0F2540 45%, #1a2e4a 100%)' }} />
-
-      {/* Subtle gold texture overlay */}
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
@@ -27,17 +24,11 @@ export default function HeroSection() {
         }}
         aria-hidden="true"
       />
-
-      {/* Bottom fade — matches Biography dark background */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32"
         style={{ background: 'linear-gradient(to bottom, transparent, #1a2e4a)' }}
       />
-
-      {/* Content: side-by-side layout — text left, portrait right, portrait never obscured */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-10 py-28 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-
-        {/* Left: text block */}
         <div className="flex-1 text-center lg:text-left">
           <p
             className="text-[#C9A84C] font-light tracking-[0.3em] text-xs sm:text-sm mb-4 opacity-90"
@@ -45,7 +36,6 @@ export default function HeroSection() {
           >
             ROYAL ONLINE EXHIBITION
           </p>
-
           <h1
             className="text-white font-bold leading-[1.5] mb-4 text-center lg:text-left"
             style={{
@@ -59,16 +49,13 @@ export default function HeroSection() {
             <span className="inline-block whitespace-nowrap">พระบรมราชินีนาถ</span>{' '}
             <span className="inline-block whitespace-nowrap text-[#C9A84C]">พระบรมราชชนนีพันปีหลวง</span>
           </h1>
-
           <GoldDivider className="lg:justify-start my-5" />
-
           <p
             className="text-white/90 font-light mb-3 leading-[1.9]"
             style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}
           >
             สถิตในดวงใจตราบนิรันดร์
           </p>
-
           <p
             className="text-white/75 font-light mb-6 leading-[2]"
             style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.125rem)' }}
@@ -77,7 +64,6 @@ export default function HeroSection() {
             <br />
             ด้วยสำนึกในพระมหากรุณาธิคุณเป็นล้นพ้นอันหาที่สุดมิได้
           </p>
-
           <div className="mt-6 border-l-2 border-[#C9A84C] pl-4 lg:pl-5">
             <p
               className="text-white/65 font-light leading-[1.9]"
@@ -89,8 +75,6 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-
-        {/* Right: portrait — displayed as a standalone image, face never covered */}
         <div className="flex-shrink-0 w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[400px]">
           <div
             className="sovereign-frame rounded-sm overflow-hidden"
@@ -98,7 +82,7 @@ export default function HeroSection() {
           >
             <img
               ref={imgRef}
-              src="/1.jpg"
+              src="/1.jpeg"
               alt="พระบรมฉายาลักษณ์ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง"
               className="w-full h-auto block"
               style={{ filter: 'grayscale(20%) brightness(0.95)', transformOrigin: 'center center' }}
@@ -106,8 +90,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
       <div className="absolute bottom-6 inset-x-0 flex justify-center items-center">
         <div className="flex flex-col items-center gap-1 text-white/40 animate-bounce">
           <span className="text-xs tracking-widest" style={{ fontFamily: "'Cinzel', serif" }}>SCROLL</span>
