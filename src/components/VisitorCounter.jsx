@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 const SESSION_KEY = 'visitor_counted';
+const API_URL = 'https://api.counterapi.dev/v1/latkrabang-learning-exhibition/visits';
 
 export default function VisitorCounter() {
   const [count, setCount] = useState(null);
@@ -17,14 +18,14 @@ export default function VisitorCounter() {
         const alreadyCounted = sessionStorage.getItem(SESSION_KEY);
 
         if (!alreadyCounted) {
-          // เซสชันใหม่ — บันทึกสถิติเพิ่มเข้าชม
-          const res = await fetch('/api/visit', { method: 'POST' });
+          // เซสชันใหม่ — อัปเดตยอดเพิ่มขึ้นทีละ 1
+          const res = await fetch(`${API_URL}/up`);
           const data = await res.json();
           sessionStorage.setItem(SESSION_KEY, '1');
           setCount(data.count || 0);
         } else {
-          // เคยเข้าชมแล้วในรอบนี้ — ดึงสถิติปัจจุบันมาแสดงอย่างเดียว
-          const res = await fetch('/api/visit');
+          // เคยเข้าชมแล้วในเซสชันนี้ — ดึงยอดปัจจุบันมาแสดงเฉยๆ
+          const res = await fetch(API_URL);
           const data = await res.json();
           setCount(data.count || 0);
         }
@@ -37,7 +38,7 @@ export default function VisitorCounter() {
     trackVisit();
   }, []);
 
-  // แอนิเมชันรันตัวเลขเพิ่มขึ้นตอนเปิดหน้าเว็บ
+  // แอนิเมชันตัวเลขวิ่งขึ้น
   useEffect(() => {
     if (count === null || count === 0) {
       if (count === 0) setIsVisible(true);
@@ -81,6 +82,7 @@ export default function VisitorCounter() {
       }}
       aria-label={`จำนวนผู้เข้าชมเว็บไซต์ ${count.toLocaleString('th-TH')} ครั้ง`}
     >
+      {/* ไอคอนผู้เข้าชมพร้อมแอนิเมชันกระพริบเบาๆ */}
       <span
         style={{
           display: 'inline-flex',
