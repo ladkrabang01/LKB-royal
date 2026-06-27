@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useRef, useEffect } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -59,7 +57,7 @@ export default function MotherSection() {
               </span>
               <div className="sovereign-frame">
                 <img
-                  src="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/a934e1590_IMG_7422.jpg"
+                  src="/6.jpg"
                   alt="สมเด็จพระนางเจ้าสิริกิติ์ฯ แม่ของแผ่นดิน"
                   className="w-full h-auto block"
                   style={{ filter: 'grayscale(15%) brightness(0.95) saturate(0.9)' }}
