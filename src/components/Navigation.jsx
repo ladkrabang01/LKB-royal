@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 ];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
-const LOGO_URL = 'https://media.db.com/images/public/6a3e82989cca8745119fa420/91bcee984_IMG_7424-removebg-preview.png';
+const LOGO_URL = '/logo.jpg';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
