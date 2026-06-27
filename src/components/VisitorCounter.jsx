@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 
 export default function VisitorCounter() {
-  const [count, setCount] = useState(1234); 
+  const [count, setCount] = useState('...');
 
-  // หมายเหตุ: โค้ดส่วนที่ไปเรียก Database ถูกตัดออก 
-  // เนื่องจาก Vercel เป็น Static Hosting ไม่สามารถเชื่อมต่อ Database เดิมได้ 
-  // หากยังคงโค้ดเดิมไว้ Vercel จะฟ้อง Error และ Deploy ไม่ผ่านครับ
+  useEffect(() => {
+    // ใช้บริการ API ภายนอกเพื่อนับจำนวนผู้เข้าชมจริง
+    // เปลี่ยน YOUR_NAMESPACE และ YOUR_KEY เป็นชื่อเว็บไซต์ของคุณ (เช่น lkb-royal)
+    fetch('https://api.countapi.xyz/hit/lkb-royal/visit-count')
+      .then(res => res.json())
+      .then(data => setCount(data.value.toLocaleString()))
+      .catch(() => setCount('1234')); // ค่าสำรองหากเชื่อมต่อ API ไม่ได้
+  }, []);
 
   return (
     <div
@@ -23,7 +28,7 @@ export default function VisitorCounter() {
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
       <span className="text-[#C9A84C] font-semibold text-sm">
-        {count.toLocaleString()}
+        {count}
       </span>
     </div>
   );
