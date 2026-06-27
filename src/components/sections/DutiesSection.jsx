@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useRef, useEffect } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -96,7 +94,7 @@ export default function DutiesSection() {
         <div className="fade-in-element fade-in-delay-1 mb-12 sm:mb-14 max-w-3xl mx-auto">
           <div className="sovereign-frame">
             <img
-              src="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/19dfecb57_IMG_7420.jpg"
+              src="/4.jpg"
               alt="สมเด็จพระนางเจ้าสิริกิติ์ฯ ทรงปฏิบัติพระราชกรณียกิจ"
               className="w-full h-auto block"
               style={{ filter: 'grayscale(10%) brightness(0.95)' }}
