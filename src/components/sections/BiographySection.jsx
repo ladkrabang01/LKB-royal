@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useRef, useEffect } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -74,7 +72,7 @@ export default function BiographySection() {
               </span>
               <div className="sovereign-frame" style={{ background: '#0F2540', borderColor: '#C9A84C' }}>
                 <img
-                  src="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/ff1ccc634_IMG_7418.jpg"
+                  src="/2.jpg"
                   alt="พระบรมฉายาลักษณ์ สมเด็จพระนางเจ้าสิริกิติ์ฯ"
                   className="w-full h-auto block"
                   style={{ filter: 'grayscale(15%) brightness(0.93)', objectFit: 'cover', objectPosition: 'center top' }}
