@@ -1,0 +1,31 @@
+const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>นิทรรศการออนไลน์เฉลิมพระเกียรติ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง</title>
+    <meta name="description" content="นิทรรศการออนไลน์เฉลิมพระเกียรติ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง จัดทำโดยศูนย์ส่งเสริมการเรียนรู้ระดับเขตลาดกระบัง" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="นิทรรศการออนไลน์เฉลิมพระเกียรติ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง" />
+    <meta property="og:description" content="จัดทำโดย ศูนย์ส่งเสริมการเรียนรู้ระดับเขตลาดกระบัง ฝ่ายประชาสัมพันธ์" />
+    <meta property="og:image" content="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/83ff7813c_IMG_7416.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="นิทรรศการออนไลน์เฉลิมพระเกียรติ สมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง" />
+    <meta name="twitter:description" content="จัดทำโดย ศูนย์ส่งเสริมการเรียนรู้ระดับเขตลาดกระบัง ฝ่ายประชาสัมพันธ์" />
+    <meta name="twitter:image" content="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/83ff7813c_IMG_7416.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

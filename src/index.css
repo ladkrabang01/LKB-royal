@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #F5F0E8;
+    color: #0F2540;
+    line-height: 1.8;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Royal Custom CSS */
+
+/* Fade-in animation */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.35s; }
+.fade-in-delay-4 { transition-delay: 0.5s; }
+
+/* Ken Burns effect */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.ken-burns {
+  animation: kenBurns 12s ease-out forwards;
+}
+
+/* Sovereign Frame */
+.sovereign-frame {
+  border: 1px solid #C9A84C;
+  padding: 10px;
+  box-shadow: 
+    0 0 0 1px #C9A84C,
+    0 4px 20px rgba(201, 168, 76, 0.3),
+    0 8px 40px rgba(0, 0, 0, 0.3);
+  background: transparent;
+}
+
+/* Gold divider */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Nav */
+.glass-nav {
+  background: rgba(245, 240, 232, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+/* Parallax section */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Active nav underline grow */
+.nav-link-active::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #C9A84C;
+  animation: growUnderline 0.3s ease forwards;
+}
+
+@keyframes growUnderline {
+  from { width: 0; margin-left: 50%; }
+  to { width: 100%; margin-left: 0; }
+}
+
+/* Card hover lift */
+.duty-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.duty-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(201, 168, 76, 0.25), 0 4px 16px rgba(15, 37, 64, 0.1);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px dashed #C9A84C;
+  outline-offset: 3px;
+}
+
+/* Touch targets */
+button, a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+
+/* Ghost watermark numbers */
+.ghost-number {
+  font-family: 'Cinzel', serif;
+  font-size: 8rem;
+  color: rgba(201, 168, 76, 0.08);
+  position: absolute;
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Section title underline decoration */
+.section-title-decoration {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  margin: 8px auto 0;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Visitor",
+  "type": "object",
+  "properties": {
+    "visit_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "session_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "session_id"
+  ]
+}
