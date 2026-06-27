@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 
 const SESSION_KEY = 'visitor_counted';
+const CACHE_KEY = 'visitor_last_count';
 const API_URL = 'https://api.counterapi.dev/v1/latkrabang-learning-exhibition/visits';
 
 export default function VisitorCounter() {
-  const [count, setCount] = useState(null);
+  // ดึงค่าผู้เข้าชมล่าสุดจาก Cache เพื่อนำมาแสดงทันทีตอนโหลดหน้าใหม่ (ป้องกันตัวนับหายไปขณะรอ API)
+  const [count, setCount] = useState(() => {
+    const cached = localStorage.getItem(CACHE_KEY);
+    return cached ? parseInt(cached, 10) : null;
+  });
   const [animatedCount, setAnimatedCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const hasRun = useRef(false);
@@ -16,29 +21,34 @@ export default function VisitorCounter() {
     const trackVisit = async () => {
       try {
         const alreadyCounted = sessionStorage.getItem(SESSION_KEY);
+        let currentCount = null;
 
         if (!alreadyCounted) {
-          // เซสชันใหม่ — อัปเดตยอดเพิ่มขึ้นทีละ 1
+          // เซสชันใหม่ — บันทึกสถิติเพิ่มเข้าชม (+1)
           const res = await fetch(`${API_URL}/up`);
           const data = await res.json();
           sessionStorage.setItem(SESSION_KEY, '1');
-          setCount(data.count || 0);
+          currentCount = data.count || 0;
         } else {
-          // เคยเข้าชมแล้วในเซสชันนี้ — ดึงยอดปัจจุบันมาแสดงเฉยๆ
+          // เคยเข้าชมแล้วในรอบนี้ — ดึงยอดรวมเดิมมาแสดง
           const res = await fetch(API_URL);
           const data = await res.json();
-          setCount(data.count || 0);
+          currentCount = data.count || 0;
         }
+
+        // อัปเดตตัวแปรและการเก็บข้อมูลในเบราว์เซอร์
+        setCount(currentCount);
+        localStorage.setItem(CACHE_KEY, currentCount.toString());
       } catch (err) {
         console.warn('VisitorCounter: could not reach counter API', err);
-        setCount(null);
+        // หากเน็ตเวิร์กมีปัญหา ให้ใช้ยอดที่แคชไว้ในระบบเครื่องเดิมต่อโดยไม่ขึ้นค่าว่าง
       }
     };
 
     trackVisit();
   }, []);
 
-  // แอนิเมชันตัวเลขวิ่งขึ้น
+  // แอนิเมชันรันตัวเลขเพิ่มขึ้น
   useEffect(() => {
     if (count === null || count === 0) {
       if (count === 0) setIsVisible(true);
@@ -82,7 +92,6 @@ export default function VisitorCounter() {
       }}
       aria-label={`จำนวนผู้เข้าชมเว็บไซต์ ${count.toLocaleString('th-TH')} ครั้ง`}
     >
-      {/* ไอคอนผู้เข้าชมพร้อมแอนิเมชันกระพริบเบาๆ */}
       <span
         style={{
           display: 'inline-flex',
