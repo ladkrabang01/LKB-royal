@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { useRef, useEffect } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -88,7 +86,7 @@ export default function MarriageSection() {
 
               <div className="sovereign-frame m-2" style={{ background: '#0a1828' }}>
                 <img
-                  src="https://media.db.com/images/public/user_6a3e826c0b269a98bf7b02df/7bd294447_IMG_7419.jpg"
+                  src="/3.jpg"
                   alt="พระบรมฉายาลักษณ์ราชาภิเษกสมรส สมเด็จพระนางเจ้าสิริกิติ์ฯ กับในหลวง รัชกาลที่ ๙"
                   className="w-full h-auto block"
                   style={{ filter: 'grayscale(20%) brightness(0.92)' }}
